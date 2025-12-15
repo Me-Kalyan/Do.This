@@ -101,7 +101,7 @@ function Calendar() {
     }
 
     return (
-        <div className={`min-h-screen pb-32 transition-colors duration-300 ${isDarkMode ? 'bg-zinc-900 text-zinc-100' : 'bg-zinc-50 text-zinc-900'
+        <div className={`min-h-screen pb-20 transition-colors duration-300 ${isDarkMode ? 'bg-zinc-900 text-zinc-100' : 'bg-zinc-50 text-zinc-900'
             }`}>
             {/* Header */}
             <header className={`sticky top-0 z-30 px-4 pt-4 pb-2 border-b transition-colors duration-300 ${isDarkMode ? 'bg-zinc-900/95 backdrop-blur-xl border-zinc-800' : 'bg-white/95 backdrop-blur-xl border-zinc-200'
@@ -288,7 +288,7 @@ function Calendar() {
 
             {/* FAB */}
             <motion.button
-                className={`fixed bottom-28 right-6 w-14 h-14 rounded-full flex items-center justify-center shadow-lg z-40 ${isDarkMode ? 'bg-zinc-100 text-zinc-900' : 'bg-zinc-900 text-white'
+                className={`fixed bottom-24 right-6 w-14 h-14 rounded-full flex items-center justify-center shadow-lg z-40 ${isDarkMode ? 'bg-zinc-100 text-zinc-900' : 'bg-zinc-900 text-white'
                     }`}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
