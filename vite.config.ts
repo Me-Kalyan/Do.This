@@ -58,29 +58,15 @@ export default defineConfig({
         chunkSizeWarningLimit: 1000,
         rollupOptions: {
             output: {
-                manualChunks: (id) => {
-                    // Firebase - split into its own chunk
-                    if (id.includes('node_modules/firebase') || id.includes('node_modules/@firebase')) {
-                        return 'firebase'
-                    }
-                    // React core
-                    if (id.includes('node_modules/react/') || id.includes('node_modules/react-dom/')) {
-                        return 'react'
-                    }
-                    // React ecosystem (router, etc)
-                    if (id.includes('node_modules/react-router') || id.includes('node_modules/@remix-run')) {
-                        return 'react-router'
-                    }
-                    // Animation libraries
-                    if (id.includes('node_modules/framer-motion')) {
-                        return 'framer-motion'
-                    }
-                    // Let Radix UI be handled naturally by Vite (removed manual chunk to fix circular dep)
-                    // Other vendor libraries  
-                    if (id.includes('node_modules') && !id.includes('@radix-ui')) {
-                        return 'vendor'
-                    }
-                },
+                // Simplified chunking - only split Firebase to reduce initial load
+                // Let Vite handle React/Radix/etc. naturally to avoid initialization issues
+                manualChunks: {
+                    firebase: [
+                        'firebase/app',
+                        'firebase/auth',
+                        'firebase/firestore'
+                    ]
+                }
             },
         },
     },
