@@ -1,6 +1,6 @@
-import { initializeApp } from 'firebase/app'
-import { getAuth } from 'firebase/auth'
-import { initializeFirestore, persistentLocalCache, persistentMultipleTabManager } from 'firebase/firestore'
+import { initializeApp, FirebaseApp } from 'firebase/app'
+import { getAuth, Auth } from 'firebase/auth'
+import { initializeFirestore, persistentLocalCache, persistentMultipleTabManager, Firestore } from 'firebase/firestore'
 
 // Firebase configuration
 // Replace these with your Firebase project credentials from:
@@ -18,9 +18,9 @@ const firebaseConfig = {
 const hasEnvVars = !!import.meta.env.VITE_FIREBASE_API_KEY &&
     !!import.meta.env.VITE_FIREBASE_PROJECT_ID
 
-let app
-let auth
-let db
+let app: FirebaseApp
+let auth: Auth
+let db: Firestore
 let isConfigured = false
 
 if (hasEnvVars) {
