@@ -75,12 +75,9 @@ export default defineConfig({
                     if (id.includes('node_modules/framer-motion')) {
                         return 'framer-motion'
                     }
-                    // UI components (Radix)
-                    if (id.includes('node_modules/@radix-ui')) {
-                        return 'radix-ui'
-                    }
-                    // Other vendor libraries
-                    if (id.includes('node_modules')) {
+                    // Let Radix UI be handled naturally by Vite (removed manual chunk to fix circular dep)
+                    // Other vendor libraries  
+                    if (id.includes('node_modules') && !id.includes('@radix-ui')) {
                         return 'vendor'
                     }
                 },
