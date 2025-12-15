@@ -20,7 +20,7 @@ function BottomNav() {
     }
 
     return (
-        <nav className={`fixed bottom-0 left-0 right-0 border-t z-50 transition-colors duration-300 ${isDarkMode ? 'bg-zinc-900 border-zinc-800' : 'bg-white border-zinc-200'}`}>
+        <nav className={`fixed bottom-0 left-0 right-0 border-t z-50 transition-colors duration-300 pb-safe ${isDarkMode ? 'bg-zinc-900 border-zinc-800' : 'bg-white border-zinc-200'}`}>
             <div className="flex items-center justify-around max-w-lg mx-auto py-2 px-4">
                 {navItems.map((item) => (
                     <NavLink
