@@ -15,10 +15,27 @@ const firebaseConfig = {
 }
 
 // Check if Firebase is configured
-const isConfigured = import.meta.env.VITE_FIREBASE_API_KEY &&
-    import.meta.env.VITE_FIREBASE_PROJECT_ID
+const hasEnvVars = !!import.meta.env.VITE_FIREBASE_API_KEY &&
+    !!import.meta.env.VITE_FIREBASE_PROJECT_ID
 
-if (!isConfigured) {
+let app
+let auth
+let db
+let isConfigured = false
+
+if (hasEnvVars) {
+    try {
+        app = initializeApp(firebaseConfig)
+        auth = getAuth(app)
+        db = initializeFirestore(app, {
+            localCache: persistentLocalCache({ tabManager: persistentMultipleTabManager() })
+        })
+        isConfigured = true
+    } catch (error) {
+        console.warn('Firebase initialization failed (probably invalid config). Falling back to demo mode.', error)
+        isConfigured = false
+    }
+} else {
     console.warn('⚠️ Firebase not configured. Running in demo mode.')
     console.warn('To configure Firebase:')
     console.warn('1. Create a project at https://console.firebase.google.com')
@@ -26,14 +43,5 @@ if (!isConfigured) {
     console.warn('3. Create .env file with VITE_FIREBASE_* variables')
 }
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig)
-
-// Initialize services
-export const auth = getAuth(app)
-export const db = initializeFirestore(app, {
-    localCache: persistentLocalCache({ tabManager: persistentMultipleTabManager() })
-})
-
-export { app }
+export { app, auth, db }
 export const isFirebaseConfigured = isConfigured
