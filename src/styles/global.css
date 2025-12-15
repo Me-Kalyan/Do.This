@@ -42,4 +42,16 @@
     outline-offset: 2px;
 }
 
+/* Safe area padding for iPhone home indicator */
+.pb-safe {
+    padding-bottom: max(1.5rem, env(safe-area-inset-bottom));
+}
 
+/* Hide scrollbar for horizontal scroll containers */
+.scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
