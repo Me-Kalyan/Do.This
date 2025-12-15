@@ -1,0 +1,42 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- S4: Full Symbol with Radiant Glow - Brand-forward contexts -->
+  <!-- Subtle glow effect -->
+  <defs>
+    <filter id="glow-s4" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <linearGradient id="gradient-s4" x1="8" y1="8" x2="56" y2="56" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#A79BFF"/>
+      <stop offset="1" stop-color="#78D4C2"/>
+    </linearGradient>
+    <radialGradient id="bloom-s4" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#A79BFF" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#A79BFF" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  
+  <!-- Bloom background -->
+  <circle cx="32" cy="32" r="28" fill="url(#bloom-s4)"/>
+  
+  <!-- Arc with glow -->
+  <circle 
+    cx="32" 
+    cy="32" 
+    r="24" 
+    stroke="url(#gradient-s4)" 
+    stroke-width="2" 
+    stroke-linecap="round"
+    stroke-dasharray="98 52"
+    stroke-dashoffset="0"
+    fill="none"
+    transform="rotate(-135 32 32)"
+    filter="url(#glow-s4)"
+  />
+  
+  <!-- Dot with glow -->
+  <circle cx="20" cy="44" r="6" fill="url(#gradient-s4)" filter="url(#glow-s4)"/>
+</svg>

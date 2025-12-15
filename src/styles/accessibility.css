@@ -1,0 +1,139 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   Accessibility — SilenceOS A11y Utilities
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ═══ REDUCED MOTION ═══ */
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* ═══ HIGH CONTRAST ═══ */
+@media (prefers-contrast: high) {
+    :root {
+        --border-color: var(--neutral-700);
+    }
+
+    .dark {
+        --border-color: var(--dark-300);
+    }
+
+    button,
+    a {
+        text-decoration: underline;
+    }
+}
+
+/* ═══ FOCUS MANAGEMENT ═══ */
+.focus-trap {
+    position: fixed;
+    inset: 0;
+    z-index: var(--z-modal);
+}
+
+/* Skip link for keyboard navigation */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--accent-violet-500);
+    color: white;
+    padding: var(--space-2) var(--space-4);
+    z-index: 1000;
+    transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+    top: 0;
+}
+
+/* ═══ ARIA STATES ═══ */
+[aria-disabled="true"] {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+[aria-hidden="true"] {
+    display: none;
+}
+
+[aria-busy="true"] {
+    cursor: wait;
+}
+
+/* ═══ FORM VALIDATION ═══ */
+[aria-invalid="true"] {
+    border-color: var(--error) !important;
+}
+
+[aria-invalid="true"]:focus {
+    box-shadow: 0 0 0 3px rgba(224, 132, 132, 0.2);
+}
+
+/* ═══ LIVE REGIONS ═══ */
+.sr-live {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* ═══ TOUCH TARGETS ═══ */
+@media (pointer: coarse) {
+
+    button,
+    a,
+    input,
+    select,
+    textarea {
+        min-height: 44px;
+        min-width: 44px;
+    }
+
+    .task-checkbox,
+    .subtask-checkbox {
+        min-width: 44px;
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+/* ═══ COLOR BLINDNESS SUPPORT ═══ */
+/* Add patterns/icons in addition to colors */
+.priority-high::before {
+    content: '!!';
+    font-weight: bold;
+}
+
+.priority-medium::before {
+    content: '!';
+}
+
+/* ═══ TEXT SCALING ═══ */
+html {
+    font-size: clamp(14px, 1vw + 10px, 18px);
+}
+
+/* ═══ FOCUS VISIBLE ═══ */
+.focus-visible-only:focus:not(:focus-visible) {
+    outline: none;
+}
+
+.focus-visible-only:focus-visible {
+    outline: 2px solid var(--accent-violet-500);
+    outline-offset: 2px;
+}

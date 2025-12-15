@@ -1,0 +1,17 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- S2: Partial Arc + Dot - Constrained spaces -->
+  <path 
+    d="M 24 12 A 20 20 0 0 1 44 32" 
+    stroke="url(#gradient-s2)" 
+    stroke-width="2" 
+    stroke-linecap="round"
+    fill="none"
+  />
+  <circle cx="24" cy="40" r="6" fill="url(#gradient-s2)"/>
+  <defs>
+    <linearGradient id="gradient-s2" x1="12" y1="12" x2="52" y2="52" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#A79BFF"/>
+      <stop offset="1" stop-color="#78D4C2"/>
+    </linearGradient>
+  </defs>
+</svg>

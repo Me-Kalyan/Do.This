@@ -1,0 +1,122 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   Do.This Design System — Typography
+   Inter-based type scale with SilenceOS characteristics
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* Display — Hero titles (dark screens only) */
+.text-display {
+    font-family: var(--font-family);
+    font-weight: var(--font-weight-light);
+    font-size: 40px;
+    line-height: 1.4;
+    letter-spacing: 0.01em;
+}
+
+/* Title Large — Section headers */
+.text-title-lg {
+    font-family: var(--font-family);
+    font-weight: 300;
+    font-size: 32px;
+    line-height: 1.4;
+    letter-spacing: 0.005em;
+}
+
+/* Title Medium — Page titles (light mode) */
+.text-title-md {
+    font-family: var(--font-family);
+    font-weight: var(--font-weight-regular);
+    font-size: 24px;
+    line-height: 1.5;
+    letter-spacing: 0.005em;
+}
+
+/* Title Small */
+.text-title-sm {
+    font-family: var(--font-family);
+    font-weight: var(--font-weight-medium);
+    font-size: 20px;
+    line-height: 1.5;
+    letter-spacing: 0.005em;
+}
+
+/* Body — Standard readable text */
+.text-body {
+    font-family: var(--font-family);
+    font-weight: var(--font-weight-regular);
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 0.01em;
+}
+
+/* Body Small */
+.text-body-sm {
+    font-family: var(--font-family);
+    font-weight: var(--font-weight-regular);
+    font-size: 15px;
+    line-height: 1.5;
+    letter-spacing: 0.01em;
+}
+
+/* Caption — Metadata (time, tags, indicators) */
+.text-caption {
+    font-family: var(--font-family);
+    font-weight: var(--font-weight-regular);
+    font-size: 12px;
+    line-height: 1.4;
+    letter-spacing: 0.02em;
+}
+
+/* Mono — Analytics & precise values */
+.text-mono {
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    font-weight: var(--font-weight-regular);
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* Label — Button and input labels */
+.text-label {
+    font-family: var(--font-family);
+    font-weight: var(--font-weight-medium);
+    font-size: 14px;
+    line-height: 1.4;
+    letter-spacing: 0.01em;
+}
+
+/* ═══ TYPOGRAPHY UTILITIES ═══ */
+.text-thin {
+    font-weight: var(--font-weight-thin);
+}
+
+.text-light {
+    font-weight: var(--font-weight-light);
+}
+
+.text-regular {
+    font-weight: var(--font-weight-regular);
+}
+
+.text-medium {
+    font-weight: var(--font-weight-medium);
+}
+
+.text-semibold {
+    font-weight: var(--font-weight-semibold);
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
+
+/* Never use all caps in SilenceOS */
+.text-uppercase {
+    text-transform: none !important;
+}

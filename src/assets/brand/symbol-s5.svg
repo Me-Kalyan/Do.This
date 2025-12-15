@@ -1,0 +1,58 @@
+<svg width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- S5: Expressive - Hero moments, animations -->
+  <defs>
+    <filter id="glow-s5" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <linearGradient id="gradient-s5" x1="16" y1="16" x2="112" y2="112" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#A79BFF"/>
+      <stop offset="0.5" stop-color="#90B7FF"/>
+      <stop offset="1" stop-color="#78D4C2"/>
+    </linearGradient>
+    <radialGradient id="bloom-s5" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#A79BFF" stop-opacity="0.2"/>
+      <stop offset="60%" stop-color="#90B7FF" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#78D4C2" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  
+  <!-- Large bloom background -->
+  <circle cx="64" cy="64" r="56" fill="url(#bloom-s5)"/>
+  
+  <!-- Main arc - thicker stroke -->
+  <circle 
+    cx="64" 
+    cy="64" 
+    r="48" 
+    stroke="url(#gradient-s5)" 
+    stroke-width="3" 
+    stroke-linecap="round"
+    stroke-dasharray="196 104"
+    stroke-dashoffset="0"
+    fill="none"
+    transform="rotate(-135 64 64)"
+    filter="url(#glow-s5)"
+  />
+  
+  <!-- Large dot -->
+  <circle cx="40" cy="88" r="12" fill="url(#gradient-s5)" filter="url(#glow-s5)"/>
+  
+  <!-- Secondary subtle arc for depth -->
+  <circle 
+    cx="64" 
+    cy="64" 
+    r="40" 
+    stroke="url(#gradient-s5)" 
+    stroke-width="1" 
+    stroke-linecap="round"
+    stroke-dasharray="80 170"
+    stroke-dashoffset="20"
+    fill="none"
+    transform="rotate(-100 64 64)"
+    opacity="0.3"
+  />
+</svg>

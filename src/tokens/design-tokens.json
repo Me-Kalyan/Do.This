@@ -1,0 +1,156 @@
+{
+    "color": {
+        "neutral": {
+            "0": "#FFFFFF",
+            "50": "#FAFAFA",
+            "100": "#F7F7F8",
+            "200": "#EDEDED",
+            "300": "#DADADA",
+            "400": "#B6B6B6",
+            "500": "#888888",
+            "600": "#555555",
+            "700": "#444444",
+            "800": "#2F2F32",
+            "900": "#1B1B1E"
+        },
+        "dark": {
+            "50": "#F1F1F3",
+            "100": "#D0D0D4",
+            "200": "#A2A2A7",
+            "300": "#7B7B81",
+            "400": "#545459",
+            "500": "#3B3B3F",
+            "600": "#2C2C30",
+            "700": "#242427",
+            "800": "#1E1E21",
+            "900": "#1B1B1E"
+        },
+        "accent": {
+            "violet": {
+                "300": "#C9C5FF",
+                "400": "#B8B0FF",
+                "500": "#A79BFF"
+            },
+            "blue": {
+                "300": "#B8CEFF",
+                "400": "#A4C3FF",
+                "500": "#90B7FF"
+            },
+            "teal": {
+                "400": "#8ADFCB",
+                "500": "#78D4C2"
+            },
+            "amber": {
+                "400": "#F5DAA5",
+                "500": "#F5D08E"
+            }
+        },
+        "functional": {
+            "success": "#79DCA0",
+            "warning": "#F2C784",
+            "error": "#E08484"
+        }
+    },
+    "typography": {
+        "fontFamily": "'Inter', -apple-system, BlinkMacSystemFont, sans-serif",
+        "fontWeight": {
+            "thin": 100,
+            "light": 200,
+            "regular": 400,
+            "medium": 500,
+            "semibold": 600
+        },
+        "display": {
+            "weight": 200,
+            "size": 40,
+            "lineHeight": 56
+        },
+        "titleLg": {
+            "weight": 300,
+            "size": 32,
+            "lineHeight": 44
+        },
+        "titleMd": {
+            "weight": 400,
+            "size": 24,
+            "lineHeight": 36
+        },
+        "titleSm": {
+            "weight": 500,
+            "size": 20,
+            "lineHeight": 30
+        },
+        "body": {
+            "weight": 400,
+            "size": 16,
+            "lineHeight": 24
+        },
+        "bodySm": {
+            "weight": 400,
+            "size": 15,
+            "lineHeight": 22
+        },
+        "caption": {
+            "weight": 400,
+            "size": 12,
+            "lineHeight": 18
+        },
+        "label": {
+            "weight": 500,
+            "size": 14,
+            "lineHeight": 20
+        }
+    },
+    "spacing": [
+        0,
+        4,
+        8,
+        12,
+        16,
+        20,
+        24,
+        32,
+        40,
+        48,
+        64
+    ],
+    "radius": {
+        "xs": 4,
+        "sm": 8,
+        "md": 16,
+        "lg": 24,
+        "xl": 30,
+        "card": 22,
+        "button": 16,
+        "input": 14,
+        "sheet": 32,
+        "bento": 24,
+        "chip": 12
+    },
+    "shadow": {
+        "light": {
+            "sm": "0px 1px 3px rgba(0, 0, 0, 0.04)",
+            "md": "0px 4px 12px rgba(0, 0, 0, 0.06)",
+            "lg": "0px 12px 24px rgba(0, 0, 0, 0.08)"
+        },
+        "dark": {
+            "sm": "0px 1px 2px rgba(255, 255, 255, 0.06)",
+            "md": "0px 4px 12px rgba(255, 255, 255, 0.04)"
+        }
+    },
+    "motion": {
+        "duration": {
+            "instant": 90,
+            "fast": 140,
+            "normal": 240,
+            "slow": 320,
+            "linger": 520
+        },
+        "easing": {
+            "outCubic": "cubic-bezier(0.33, 1, 0.68, 1)",
+            "outQuart": "cubic-bezier(0.25, 1, 0.5, 1)",
+            "inOutSine": "cubic-bezier(0.37, 0, 0.63, 1)",
+            "springSoft": "cubic-bezier(0.34, 1.56, 0.64, 1)"
+        }
+    }
+}

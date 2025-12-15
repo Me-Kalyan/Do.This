@@ -1,0 +1,10 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- S1: Dot Only - Absolute Minimum -->
+  <circle cx="24" cy="40" r="8" fill="url(#gradient-s1)"/>
+  <defs>
+    <linearGradient id="gradient-s1" x1="16" y1="32" x2="32" y2="48" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#A79BFF"/>
+      <stop offset="1" stop-color="#78D4C2"/>
+    </linearGradient>
+  </defs>
+</svg>

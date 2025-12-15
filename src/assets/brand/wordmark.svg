@@ -1,0 +1,32 @@
+<svg width="200" height="40" viewBox="0 0 200 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Wordmark: Do.This -->
+  <defs>
+    <linearGradient id="wordmark-gradient" x1="0" y1="0" x2="200" y2="40" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#A79BFF"/>
+      <stop offset="1" stop-color="#78D4C2"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- "Do" in regular weight -->
+  <text 
+    x="0" 
+    y="30" 
+    font-family="Inter, -apple-system, sans-serif" 
+    font-size="32" 
+    font-weight="400" 
+    fill="currentColor"
+  >Do</text>
+  
+  <!-- Dot as gradient period -->
+  <circle cx="52" cy="28" r="4" fill="url(#wordmark-gradient)"/>
+  
+  <!-- "This" in medium weight -->
+  <text 
+    x="62" 
+    y="30" 
+    font-family="Inter, -apple-system, sans-serif" 
+    font-size="32" 
+    font-weight="500" 
+    fill="currentColor"
+  >This</text>
+</svg>

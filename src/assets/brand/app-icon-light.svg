@@ -1,0 +1,31 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- App Icon - Light Variant -->
+  <defs>
+    <linearGradient id="gradient-light" x1="100" y1="100" x2="412" y2="412" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#A79BFF"/>
+      <stop offset="1" stop-color="#78D4C2"/>
+    </linearGradient>
+    <filter id="shadow-light" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="16" flood-color="#000" flood-opacity="0.1"/>
+    </filter>
+  </defs>
+  
+  <!-- Background with rounded corners -->
+  <rect width="512" height="512" rx="112" fill="#FFFFFF" filter="url(#shadow-light)"/>
+  
+  <!-- Main arc -->
+  <circle 
+    cx="256" 
+    cy="256" 
+    r="140" 
+    stroke="url(#gradient-light)" 
+    stroke-width="12" 
+    stroke-linecap="round"
+    stroke-dasharray="572 308"
+    fill="none"
+    transform="rotate(-135 256 256)"
+  />
+  
+  <!-- Dot -->
+  <circle cx="168" cy="344" r="36" fill="url(#gradient-light)"/>
+</svg>
