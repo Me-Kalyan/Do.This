@@ -32,7 +32,14 @@ export function TaskItem({ task, isDarkMode, onComplete, onDelete }: TaskItemPro
     }
 
     return (
-        <div className="relative mb-3 select-none touch-pan-y">
+        <motion.div
+            layout
+            initial={{ opacity: 0, y: 10, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.9, transition: { duration: 0.2 } }}
+            whileHover={{ scale: 1.02 }}
+            className="relative mb-3 select-none touch-pan-y"
+        >
             <ContextMenu>
                 {/* Background Actions */}
                 <div className={`absolute inset-0 rounded-xl overflow-hidden`}>
@@ -62,7 +69,7 @@ export function TaskItem({ task, isDarkMode, onComplete, onDelete }: TaskItemPro
                         onDragEnd={handleDragEnd}
                         style={{ x }}
                         whileTap={{ cursor: 'grabbing' }}
-                        className={`relative z-10 flex items-start gap-3 p-4 rounded-xl shadow-sm border ${isDarkMode ? 'bg-zinc-800 border-zinc-700' : 'bg-white border-zinc-200'
+                        className={`relative z-10 flex items-start gap-3 p-4 rounded-xl shadow-sm border backdrop-blur-md transition-all ${isDarkMode ? 'bg-zinc-800/80 border-zinc-700/50' : 'bg-white/80 border-zinc-200/50'
                             } ${task.completed ? 'opacity-50' : ''}`}
                     >
                         {/* Checkbox (Clickable fallback) */}
@@ -126,7 +133,7 @@ export function TaskItem({ task, isDarkMode, onComplete, onDelete }: TaskItemPro
                     </div>
                 </ContextMenuContent>
             </ContextMenu>
-        </div>
+        </motion.div>
     )
 }
 

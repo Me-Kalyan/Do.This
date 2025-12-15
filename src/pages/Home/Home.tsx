@@ -71,10 +71,11 @@ function Home() {
         : user?.email?.slice(0, 2).toUpperCase() || 'GU'
 
     return (
-        <div className={`min-h-screen transition-colors duration-300 ${isDarkMode ? 'bg-zinc-900 text-zinc-100' : 'bg-zinc-50 text-zinc-900'
+        <div className={`min-h-screen pb-32 transition-colors duration-300 ${isDarkMode ? 'bg-zinc-900 text-zinc-100' : 'bg-zinc-50 text-zinc-900'
             }`}>
             {/* Header */}
-            <header className="px-6 pt-8 pb-4">
+            <header className={`sticky top-0 z-30 px-6 pt-8 pb-4 backdrop-blur-xl transition-colors border-b ${isDarkMode ? 'bg-zinc-900/80 border-zinc-800' : 'bg-zinc-50/80 border-zinc-200/50'
+                }`}>
                 {/* Header Row */}
                 <div className="relative flex items-center justify-center mb-6">
                     {/* Centered Logo */}
@@ -262,7 +263,7 @@ function Home() {
 
             {/* FAB */}
             <motion.button
-                className={`fixed bottom-24 right-6 w-14 h-14 rounded-full flex items-center justify-center shadow-lg ${isDarkMode ? 'bg-zinc-100 text-zinc-900' : 'bg-zinc-900 text-white'
+                className={`fixed bottom-28 right-6 w-14 h-14 rounded-full flex items-center justify-center shadow-lg z-40 ${isDarkMode ? 'bg-zinc-100 text-zinc-900' : 'bg-zinc-900 text-white'
                     }`}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
