@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import App from './App'
 import '@styles/tailwind.css'
 import '@styles/global.css'
+import { ErrorBoundary } from '@/components/ui/error-boundary'
 
 const queryClient = new QueryClient({
     defaultOptions: {
@@ -19,7 +20,9 @@ createRoot(document.getElementById('root')!).render(
     <StrictMode>
         <QueryClientProvider client={queryClient}>
             <BrowserRouter>
-                <App />
+                <ErrorBoundary>
+                    <App />
+                </ErrorBoundary>
             </BrowserRouter>
         </QueryClientProvider>
     </StrictMode>,
