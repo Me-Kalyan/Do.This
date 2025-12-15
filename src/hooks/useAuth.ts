@@ -51,7 +51,7 @@ export function useAuth() {
         }
 
         // Listen for Firebase auth changes
-        const unsubscribe = onAuthStateChanged(auth, (user) => {
+        const unsubscribe = onAuthStateChanged(auth!, (user) => {
             setState(prev => ({
                 ...prev,
                 user,
@@ -73,7 +73,7 @@ export function useAuth() {
         }
 
         try {
-            const result = await signInWithEmailAndPassword(auth, email, password)
+            const result = await signInWithEmailAndPassword(auth!, email, password)
             return { user: result.user, error: null }
         } catch (error) {
             const authError = error as AuthError
@@ -93,7 +93,7 @@ export function useAuth() {
         }
 
         try {
-            const result = await createUserWithEmailAndPassword(auth, email, password)
+            const result = await createUserWithEmailAndPassword(auth!, email, password)
             return { user: result.user, error: null }
         } catch (error) {
             const authError = error as AuthError
@@ -113,7 +113,7 @@ export function useAuth() {
 
         try {
             const provider = new GoogleAuthProvider()
-            const result = await signInWithPopup(auth, provider)
+            const result = await signInWithPopup(auth!, provider)
             return { user: result.user, error: null }
         } catch (error) {
             const authError = error as AuthError
@@ -132,7 +132,7 @@ export function useAuth() {
         }
 
         try {
-            await firebaseSignOut(auth)
+            await firebaseSignOut(auth!)
             return { error: null }
         } catch (error) {
             const authError = error as AuthError
@@ -147,7 +147,7 @@ export function useAuth() {
         }
 
         try {
-            await sendPasswordResetEmail(auth, email)
+            await sendPasswordResetEmail(auth!, email)
             return { error: null }
         } catch (error) {
             return { error: error as AuthError }
@@ -160,16 +160,16 @@ export function useAuth() {
             return { error: null }
         }
 
-        if (!auth.currentUser) {
+        if (!auth!.currentUser) {
             return { error: { message: 'No user logged in' } as AuthError }
         }
 
         try {
-            await firebaseUpdateProfile(auth.currentUser, { displayName })
+            await firebaseUpdateProfile(auth!.currentUser, { displayName })
             // Force state refresh
             setState(prev => ({
                 ...prev,
-                user: auth.currentUser,
+                user: auth!.currentUser,
             }))
             return { error: null }
         } catch (error) {
@@ -182,20 +182,20 @@ export function useAuth() {
             return { error: null }
         }
 
-        if (!auth.currentUser || !auth.currentUser.email) {
+        if (!auth!.currentUser || !auth!.currentUser.email) {
             return { error: { message: 'No user logged in' } as AuthError }
         }
 
         try {
             // Re-authenticate user first (required for sensitive operations)
             const credential = EmailAuthProvider.credential(
-                auth.currentUser.email,
+                auth!.currentUser.email,
                 currentPassword
             )
-            await reauthenticateWithCredential(auth.currentUser, credential)
+            await reauthenticateWithCredential(auth!.currentUser, credential)
 
             // Now update password
-            await firebaseUpdatePassword(auth.currentUser, newPassword)
+            await firebaseUpdatePassword(auth!.currentUser, newPassword)
             return { error: null }
         } catch (error) {
             const authError = error as AuthError

@@ -63,7 +63,7 @@ export function useVault() {
 
         // Real Firebase - set up real-time listener
         console.log('Setting up Vault listener for user:', user.uid)
-        const vaultRef = collection(db, 'vault')
+        const vaultRef = collection(db!, 'vault')
         const q = query(vaultRef, where('userId', '==', user.uid))
 
         const unsubscribe = onSnapshot(
@@ -137,7 +137,7 @@ export function useVault() {
         // Firebase mode
         try {
             console.log('Adding vault item:', newItem.title)
-            const vaultRef = collection(db, 'vault')
+            const vaultRef = collection(db!, 'vault')
             const docRef = await addDoc(vaultRef, {
                 ...newItem,
                 createdAt: serverTimestamp(),
@@ -167,7 +167,7 @@ export function useVault() {
 
         // Firebase mode
         try {
-            const itemRef = doc(db, 'vault', itemId)
+            const itemRef = doc(db!, 'vault', itemId)
             await updateDoc(itemRef, {
                 ...updates,
                 updatedAt: serverTimestamp(),
@@ -199,7 +199,7 @@ export function useVault() {
 
         // Firebase mode
         try {
-            const itemRef = doc(db, 'vault', itemId)
+            const itemRef = doc(db!, 'vault', itemId)
             await deleteDoc(itemRef)
         } catch (err) {
             console.error('Error deleting vault item:', err)

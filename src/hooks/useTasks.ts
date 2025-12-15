@@ -73,7 +73,7 @@ export function useTasks() {
 
         // Real Firebase - set up real-time listener
         console.log('Setting up Firestore listener for user:', user.uid)
-        const tasksRef = collection(db, 'tasks')
+        const tasksRef = collection(db!, 'tasks')
 
         // Simple query without orderBy to avoid index requirement
         const q = query(
@@ -162,7 +162,7 @@ export function useTasks() {
         // Firebase mode
         try {
             console.log('Adding task to Firestore:', newTask.title)
-            const tasksRef = collection(db, 'tasks')
+            const tasksRef = collection(db!, 'tasks')
             const docRef = await addDoc(tasksRef, {
                 ...newTask,
                 dueDate: newTask.dueDate ? Timestamp.fromDate(newTask.dueDate) : null,
@@ -193,7 +193,7 @@ export function useTasks() {
 
         // Firebase mode
         try {
-            const taskRef = doc(db, 'tasks', taskId)
+            const taskRef = doc(db!, 'tasks', taskId)
             await updateDoc(taskRef, {
                 ...updates,
                 dueDate: updates.dueDate ? Timestamp.fromDate(updates.dueDate) : null,
@@ -290,7 +290,7 @@ export function useTasks() {
 
         // Firebase mode
         try {
-            const taskRef = doc(db, 'tasks', taskId)
+            const taskRef = doc(db!, 'tasks', taskId)
             await deleteDoc(taskRef)
         } catch (err) {
             console.error('Error deleting task:', err)
