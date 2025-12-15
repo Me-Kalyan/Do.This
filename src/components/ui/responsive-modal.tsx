@@ -36,14 +36,14 @@ export function ResponsiveModal({ children, open, onOpenChange, trigger, title, 
     return (
         <Drawer open={open} onOpenChange={onOpenChange}>
             {trigger && <DrawerTrigger asChild>{trigger}</DrawerTrigger>}
-            <DrawerContent className="max-h-[85vh]">
+            <DrawerContent>
                 {(title || description) && (
-                    <DrawerHeader className="text-left px-4">
+                    <DrawerHeader className="text-left">
                         {title && <DrawerTitle>{title}</DrawerTitle>}
                         {description && <DrawerDescription>{description}</DrawerDescription>}
                     </DrawerHeader>
                 )}
-                <div className="px-4 pb-safe overflow-y-auto">
+                <div className="px-4 pb-8">
                     {children}
                 </div>
             </DrawerContent>
