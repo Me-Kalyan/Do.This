@@ -55,3 +55,36 @@
 .scrollbar-hide::-webkit-scrollbar {
     display: none;
 }
+
+/* Prevent iOS zoom on input focus - ensure font-size is at least 16px */
+@media screen and (max-width: 768px) {
+    input, select, textarea {
+        font-size: 16px !important;
+    }
+}
+
+/* Prevent double-tap zoom */
+* {
+    touch-action: manipulation;
+}
+
+/* Prevent text selection on buttons and interactive elements */
+button, a, [role="button"] {
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+}
+
+/* Fixed layout for mobile */
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+    position: relative;
+}
+
+/* Ensure body doesn't scroll horizontally */
+#root {
+    overflow-x: hidden;
+    min-height: 100vh;
+    min-height: 100dvh; /* Dynamic viewport height for mobile browsers */
+}

@@ -25,10 +25,21 @@ function Calendar() {
 
     // Get tasks for the selected date
     const tasksForSelectedDate = useMemo(() => {
-        return tasks.filter(task => {
-            if (!task.dueDate) return false
-            return task.dueDate.toDateString() === selectedDate.toDateString()
+        console.log('📅 Calendar: All tasks:', tasks.length, tasks)
+        console.log('📅 Selected date:', selectedDate.toDateString())
+        const filtered = tasks.filter(task => {
+            if (!task.dueDate) {
+                console.log(`Task "${task.title}" has no dueDate`)
+                return false
+            }
+            const taskDateStr = task.dueDate.toDateString()
+            const selectedDateStr = selectedDate.toDateString()
+            const matches = taskDateStr === selectedDateStr
+            console.log(`Task "${task.title}": dueDate=${taskDateStr}, selected=${selectedDateStr}, matches=${matches}`)
+            return matches
         })
+        console.log('📅 Filtered tasks for today:', filtered.length)
+        return filtered
     }, [tasks, selectedDate])
 
     // Convert tasks to time blocks (using dueTime to determine start hour)
