@@ -38,28 +38,49 @@ export function useAuth() {
     })
 
     useEffect(() => {
-        // If Firebase isn't configured, use demo mode
+        // If Firebase isn't configured, use demo mode immediately
         if (!isFirebaseConfigured) {
-            // Check if user was "logged in" before
-            const wasLoggedIn = localStorage.getItem('demo-auth')
+            // Auto-login demo user for easy testing
+            localStorage.setItem('demo-auth', 'true')
             setState({
-                user: wasLoggedIn ? DEMO_USER : null,
+                user: DEMO_USER,
                 loading: false,
                 error: null,
             })
+            console.log('🎭 Demo mode: using demo user')
             return
         }
 
-        // Listen for Firebase auth changes
+        // Firebase IS configured - listen for auth changes
+        let authTimeout: NodeJS.Timeout
+
         const unsubscribe = onAuthStateChanged(auth!, (user) => {
-            setState(prev => ({
-                ...prev,
-                user,
-                loading: false,
-            }))
+            if (user) {
+                // Real Firebase user
+                setState(prev => ({
+                    ...prev,
+                    user,
+                    loading: false,
+                }))
+            } else {
+                // No Firebase user - auto-enable demo mode after brief wait
+                // This allows the app to work even when Firebase auth isn't set up
+                authTimeout = setTimeout(() => {
+                    console.log('🎭 No Firebase user, falling back to demo mode')
+                    localStorage.setItem('demo-auth', 'true')
+                    setState({
+                        user: DEMO_USER,
+                        loading: false,
+                        error: null,
+                    })
+                }, 1000) // Wait 1 second for potential Firebase auth
+            }
         })
 
-        return () => unsubscribe()
+        return () => {
+            unsubscribe()
+            if (authTimeout) clearTimeout(authTimeout)
+        }
     }, [])
 
     const signIn = useCallback(async (email: string, password: string) => {

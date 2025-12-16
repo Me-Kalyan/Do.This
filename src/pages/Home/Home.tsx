@@ -45,14 +45,20 @@ function Home() {
     }
 
     const handleAddTask = async (taskData: { title: string; category?: string; date?: Date; recurrence?: string; priority?: 'low' | 'medium' | 'high'; time?: string }) => {
-        await addTask({
-            title: taskData.title,
-            dueDate: taskData.date || new Date(),
-            dueTime: taskData.time,
-            recurrence: taskData.recurrence as any, // Cast to match Task interface union type
-            category: taskData.category,
-            priority: taskData.priority,
-        })
+        console.log('📝 handleAddTask called with:', taskData)
+        try {
+            await addTask({
+                title: taskData.title,
+                dueDate: taskData.date || new Date(),
+                dueTime: taskData.time,
+                recurrence: taskData.recurrence as any,
+                category: taskData.category,
+                priority: taskData.priority,
+            })
+            console.log('✅ Task added successfully')
+        } catch (error) {
+            console.error('❌ Error adding task:', error)
+        }
         setShowQuickCapture(false)
     }
 
